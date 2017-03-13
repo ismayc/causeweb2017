@@ -1,6 +1,6 @@
 ---
 title: A Fully Customizable Textbook for Introductory Statistics/Data Science Courses
-author: "<br> Chester Ismay - Reed College/Pacific University <br> Albert Y. Kim - Middlebury College <br><br> Email: chester@moderndive.com, albert@moderndive.com"
+author: "<br> Chester Ismay - Reed College/Pacific University <br> Albert Y. Kim - Middlebury College <br><br> Email: chester@moderndive.com <br> &emsp; albert@moderndive.com"
 date: '2017/03/24 <br><br> Slides available at http://bit.ly/moderndive-causeweb'
 output: 
   xaringan::moon_reader:
@@ -248,6 +248,7 @@ class: center, middle
 
 # Supplementary materials to the textbook
 
+
 ---
 
 ## The [<small>`fivethirtyeight`</small>](https://cran.r-project.org/web/packages/fivethirtyeight/vignettes/fivethirtyeight.html)  R package
@@ -282,6 +283,26 @@ data(police_locals)
 <center>
 <a href="https://www.datacamp.com/courses/effective-data-storytelling-using-the-tidyverse"><img src="images/datacamp.png" width="630"/> </a>
 </center>
+
+---
+
+## Tips from us
+
+- We think the model for teaching intro stats is evolving rapidly.
+- We use the chalkboard/white board for writing code, for coloring plots, and for better engaging with our students.
+
+---
+
+## Start small
+
+- Adding just a few of our ideas and materials into your course can go a long way
+
+<center>
+<br>
+<a href="https://www.amazon.com/Small-Teaching-Everyday-Lessons-Learning/dp/1118944496"><img src="images/small_teaching.jpg" width="250"/> </a>
+</center>
+
+
 
 ---
 
