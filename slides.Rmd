@@ -18,10 +18,7 @@ class: center, middle
 # devtools::install_github("yihui/xaringan")
 library(tidyverse)
 library(knitr)
-library(magick)
-library(magrittr)
-library(okcupiddata)
-data(profiles)
+theme_set(theme_gray(base_size = 26))
 options(htmltools.dir.version = FALSE, scipen = 99)
 knitr::opts_chunk$set(echo = FALSE, fig.width=10.5, fig.height=4.5)
 ```
@@ -53,7 +50,7 @@ class: center, middle
 
 * Segregated lecture/lab is a legacy of when:
     + Desktops reigned
-    + Proprietary statistical software was the best/only option
+    + Proprietary statistical software was <br> usually the best/only option
 --
 * Today
     + Almost all students have access to laptops
@@ -105,20 +102,17 @@ knitr::include_graphics("images/hadley.png")
 ```{r echo=FALSE, warning=FALSE}
 library(nycflights13)
 library(ggplot2)
-theme_set(theme_gray(base_size = 20))
 ggplot(data = weather, mapping = aes(x = factor(month), y = temp)) +
-  geom_boxplot() +
+  geom_boxplot(na.rm = TRUE) +
   labs(title = "Hourly Temperatures by Month in NYC in 2013", x = "Month", 
-       y = expression("Temperature"*degree*F))
+       y = expression("Temperature("*degree*F*")"))
 ```
 
 ---
 
 ## Have data visualization be the driver
 
-<br><br>
-
-```{r echo=FALSE}
+```{r echo=FALSE, fig.height=7}
 library(gapminder)
 ggplot(gapminder %>% filter(year == 2002), 
        aes(gdpPercap, lifeExp, size = pop, color = continent)) +
@@ -171,7 +165,7 @@ knitr::include_graphics("images/tdist.png")
 ---
 
 
-## 5. Don’t fence off from the computation pool, <br>throw them in!
+## 5. Don’t fence off students from the computation <br> &nbsp; &nbsp; pool, throw them in!
 
 - <small>Scaffold & support as a good foreign language professor would</small>
 
@@ -188,7 +182,18 @@ knitr::include_graphics("images/tdist.png")
 
 <center>
 <br>
-<a href="https://static1.squarespace.com/static/5150aec6e4b0e340ec52710a/t/51525c33e4b0b3e0d10f77ab/1364352052403/Data_Science_VD.png"><img src="images/no_venn.png" width="400"/> </a>
+<a href="https://static1.squarespace.com/static/5150aec6e4b0e340ec52710a/t/51525c33e4b0b3e0d10f77ab/1364352052403/Data_Science_VD.png"><img src="https://static1.squarespace.com/static/5150aec6e4b0e340ec52710a/t/51525c33e4b0b3e0d10f77ab/1364352052403/Data_Science_VD.png" width="400"/> </a>
+</center>
+
+---
+
+# Developing a needed skill
+
+- Coding will be a basic skill on par with reading and writing.
+
+<center>
+<br>
+<a href="https://static1.squarespace.com/static/5150aec6e4b0e340ec52710a/t/51525c33e4b0b3e0d10f77ab/1364352052403/Data_Science_VD.png"><img src="images/no_venn.png" width="430"/> </a>
 </center>
 
 ---
@@ -204,9 +209,6 @@ knitr::include_graphics("images/tdist.png")
 <center>
 <a href="http://giphy.com/gifs/oskouioskoui-lotr-gifscapade-3oFyCVxsQn6RBa0r5u"><img src="images/precious.gif" width="600"/> </a>
 </center>
-
----
-
 
 ---
 
@@ -232,7 +234,7 @@ class: center, middle
 
 ***
 
-### Authors:  Chester Ismay, Albert Y. Kim and **you**?
+### Authors:  Chester Ismay, Albert Y. Kim and you?
 
 ## [ModernDive.com](http://moderndive.com)
 
@@ -245,6 +247,7 @@ OR
 class: center, middle
 
 # Supplementary materials to the textbook
+
 ---
 
 ## The [<small>`fivethirtyeight`</small>](https://cran.r-project.org/web/packages/fivethirtyeight/vignettes/fivethirtyeight.html)  R package
@@ -265,6 +268,7 @@ library(fivethirtyeight)
 data(police_locals)
 ```
 
+<br>
 
 <center>
 <a href="https://fivethirtyeight.com/datalab/most-police-dont-live-in-the-cities-they-serve/"><img src="images/police.png" width="750"/> </a>
@@ -273,7 +277,7 @@ data(police_locals)
 
 ---
 
-## DataCamp course
+## [DataCamp course](https://www.datacamp.com/courses/effective-data-storytelling-using-the-tidyverse)
 
 <center>
 <a href="https://www.datacamp.com/courses/effective-data-storytelling-using-the-tidyverse"><img src="images/datacamp.png" width="630"/> </a>
@@ -310,11 +314,17 @@ data(police_locals)
 
 ---
 
-# [ModernDive.com](http://www.moderndive.com)
+layout: true
 
-- <small>Join us for a [workshop](https://www.causeweb.org/cause/uscots/uscots17/workshop/3) at USCOTS at Penn State on May 17-18</small>
+.footer[These slides available at <http://bit.ly/moderndive-causeweb> <br> Source code for slides at <https://github.com/ismayc/causeweb2017>]
+
+---
+
+## [ModernDive.com](http://www.moderndive.com)
+
+- <small>Join us for a [workshop](https://www.causeweb.org/cause/uscots/uscots17/workshop/3) with many more details at USCOTS at <br> Penn State on May 17-18</small>
 - <small>Slides created via the R package [xaringan](https://github.com/yihui/xaringan) by Yihui Xie.</small>
-- <small>Fork the ModernDive GitHub repository at <br> <https://github.com/ismayc/moderndiver-book></small>
+- <small>[Source code for ModernDive](https://github.com/ismayc/moderndiver-book)</small>
     - <small>Feel free to modify the book as you wish for your own needs! Just please list the authors as "Chester Ismay, Albert Y. Kim, and YOU!"</small>
 - <small>Fill out form to receive updates using [MailChimp](http://eepurl.com/cBkItf)</small>
 - <small>Email us at <chester@moderndive.com> or <albert@moderndive.com></small>
