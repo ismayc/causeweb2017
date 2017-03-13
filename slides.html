@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Using Open-Source Tools in   Teaching Statistics</title>
+    <title>A Fully Customizable Textbook for Introductory Statistics/Data Science Courses</title>
     <meta charset="utf-8">
-    <meta name="author" content="  Chester Ismay   Reed College/Pacific University   Email: chester@pacificu.edu   Twitter: @old_man_chester" />
+    <meta name="author" content="  Chester Ismay - Reed College/Pacific University   Albert Y. Kim - Middlebury College    Email: chester@moderndive.com, albert@moderndive.com   Twitter: @old_man_chester, @rudeboybert" />
     <link rel="stylesheet" href="example.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Using Open-Source Tools in <br> Teaching Statistics
-### <br> Chester Ismay <br> Reed College/Pacific University <br> Email: <a href="mailto:chester@pacificu.edu">chester@pacificu.edu</a> <br> Twitter: <span class="citation">@old_man_chester</span>
-### 2017/02/11 <br><br> Slides available at <a href="http://bit.ly/OTEN17" class="uri">http://bit.ly/OTEN17</a> <br> Source code available at <a href="https://github.com/ismayc/oten-moderndive" class="uri">https://github.com/ismayc/oten-moderndive</a>
+# A Fully Customizable Textbook for Introductory Statistics/Data Science Courses
+### <br> Chester Ismay - Reed College/Pacific University <br> Albert Y. Kim - Middlebury College <br><br> Email: <a href="mailto:chester@moderndive.com">chester@moderndive.com</a>, <a href="mailto:albert@moderndive.com">albert@moderndive.com</a> <br> Twitter: <span class="citation">@old_man_chester</span>, <span class="citation">@rudeboybert</span>
+### 2017/03/24 <br><br> Slides available at <a href="http://bit.ly/moderndive-causeweb" class="uri">http://bit.ly/moderndive-causeweb</a>
 
 ---
 
@@ -394,5 +394,23 @@ data(police_locals)
 });
 if (window.HTMLWidgets) slideshow.on('showSlide', function (slide) {setTimeout(function() {window.dispatchEvent(new Event('resize'));}, 100)});</script>
 
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
   </body>
 </html>

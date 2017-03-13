@@ -1,7 +1,7 @@
 ---
-title: Using Open-Source Tools in <br> Teaching Statistics
-author: "<br> Chester Ismay <br> Reed College/Pacific University <br> Email: chester@pacificu.edu <br> Twitter:  @old_man_chester"
-date: '2017/02/11 <br><br> Slides available at http://bit.ly/OTEN17 <br> Source code available at https://github.com/ismayc/oten-moderndive'
+title: A Fully Customizable Textbook for Introductory Statistics/Data Science Courses
+author: "<br> Chester Ismay - Reed College/Pacific University <br> Albert Y. Kim - Middlebury College <br><br> Email: chester@moderndive.com, albert@moderndive.com  <br> Twitter:  @old_man_chester, @rudeboybert"
+date: '2017/03/24 <br><br> Slides available at http://bit.ly/moderndive-causeweb'
 output: 
   xaringan::moon_reader:
     lib_dir: libs
