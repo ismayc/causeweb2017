@@ -1,7 +1,7 @@
 ---
 title: A Fully Customizable Textbook for Introductory Statistics/Data Science Courses
 author: "<br> Chester Ismay - Reed College/Pacific University <br> Albert Y. Kim - Middlebury College <br><br> Email: chester@moderndive.com <br> &emsp; albert@moderndive.com"
-date: '2017/03/24 <br><br> Slides available at http://bit.ly/moderndive-causeweb'
+date: '2017/03/14 <br><br> Slides available at http://bit.ly/moderndive-causeweb'
 output: 
   xaringan::moon_reader:
     lib_dir: libs
@@ -33,20 +33,22 @@ knitr::opts_chunk$set(echo = FALSE, fig.width=10.5, fig.height=4.5)
 
 class: center, middle
 
-## Guiding Principles of ModernDive
+# Guiding Principles of ModernDive
 
-***
+---
 
-## 1. Blur the lines between lecture and lab
+class: center, middle
 
-### While in lab section...
+# 1. Blur the lines between lecture and lab
+
+## While in lab section...
 
 <center><img src="https://pbs.twimg.com/profile_images/577715748497281024/VutE_k52.jpeg" alt="Drawing" style="width: 200px;"/>
 <img src="https://i.stack.imgur.com/n5cRZ.jpg" alt="Drawing" style="width: 300px;"/><img src="https://cdn2.macworld.co.uk/cmsdata/features/3607036/MagSafe1.jpg" alt="Drawing" style="width: 220px;"/></center>
 
 ---
 
-## Then and Now
+# Then and Now
 
 * Segregated lecture/lab is a legacy of when:
     + Desktops reigned
@@ -57,7 +59,7 @@ class: center, middle
     + Open source software options are more palatable
 ---
 
-## A new classroom environment
+# A new classroom environment
 
 <center><img src="Albert/group_1.jpg" alt="Drawing" style="width: 700px;"/></center>
 
@@ -69,11 +71,9 @@ class: center, middle
 
 ---
 
-## Guiding Principles of ModernDive
+# 2. Focus on Hadley Wickham's data/science research pipeline
 
-***
-
-## 2. Focus on the data/science research pipeline
+<br><br>
 
 ```{r out.width="100%"}
 knitr::include_graphics("images/hadley.png")
@@ -81,7 +81,7 @@ knitr::include_graphics("images/hadley.png")
 
 ---
 
-## Creating effective data stories is the key
+# Creating effective data stories is the key
 
 - Each topic builds on previous topics towards improving communication using data
 
@@ -91,15 +91,12 @@ knitr::include_graphics("images/hadley.png")
 </center>
 
 ---
-## Guiding Principles of ModernDive
 
-***
-
-## 3. It's all about the data
+# 3. It's all about the data
 
 - Use modern R packages with rich, interesting, open data
 
-```{r echo=FALSE, warning=FALSE}
+```{r echo=FALSE, eval=FALSE, warning=FALSE, fig.height=6}
 library(nycflights13)
 library(ggplot2)
 ggplot(data = weather, mapping = aes(x = factor(month), y = temp)) +
@@ -108,106 +105,91 @@ ggplot(data = weather, mapping = aes(x = factor(month), y = temp)) +
        y = expression("Temperature("*degree*F*")"))
 ```
 
+<center>
+<br>
+<a href="http://3.bp.blogspot.com/-7PT3LAJf44I/UagJEZglWHI/AAAAAAAAC74/aADwJ8BPHhM/s1600/bird+eating5.jpg"><img src="images/mother_robin.jpg" width="450"/> </a>
+</center>
+
 ---
 
-## Have data visualization be the driver
+# Have data visualization be the driver
 
-```{r echo=FALSE, fig.height=7}
+```{r echo=FALSE, fig.height=7, fig.width=10.7}
 library(gapminder)
-ggplot(gapminder %>% filter(year == 2002), 
-       aes(gdpPercap, lifeExp, size = pop, color = continent)) +
+library(grid)
+ggplot(gapminder %>% filter(year == 2002) %>% 
+         mutate(`pop (millions)` = pop / 1e6), 
+       aes(gdpPercap, lifeExp, size = `pop (millions)`, color = continent)) +
   geom_point() +
   scale_x_log10() +
-  labs(x = "GDP Per Capita", y = "Mean Life Expectancy", title = "By Region in 2002")
+  labs(x = "GDP Per Capita in 2002", y = "Mean Life Expectancy in 2002") +
+  scale_colour_brewer(palette = "Set1") +
+  theme(legend.text = element_text(size = 20), 
+        legend.title = element_text(size = 25),
+        legend.key.height = unit(2,"line")) +
+  guides(colour = guide_legend(override.aes = list(size = 8)))
 ```
 
 
 ---
 
-## Guiding Principles of ModernDive
-
-***
-
-## 4. Use simulation/resampling instead of probability
+# 4. Use simulation/resampling instead of probability
 
 
-### <div style="float: left; width: 60%;">From Albert's 300-level ~~Mathematical Statistics~~ Theory of Statistics: </div>
+## <div style="float: left; width: 60%;">From Albert's 300-level ~~Mathematical Statistics~~ <br> Theory of Statistics: </div>
 
 
 <div style="float: right; width: 40%;">
-<center><img src="Albert/hesterberg.jpg" alt="Drawing" style="width: 225px;"/></center>
+<center><img src="Albert/hesterberg.jpg" alt="Drawing" style="width: 275px;"/></center>
 </div>
 
 ---
 
-## Reinforce concepts instead of equations, formulas, and probability tables
+# Reinforce concepts instead of equations, formulas, and probability tables
 
-- Build the Central Limit Theorem using computation
-- Check for assumptions needed for traditional inference using algorithmic thinking
+- Build the ideas behind the Central Limit Theorem using computation
+
 --
 
-```{r, fig.align="center", out.width="82%"}
+```{r, fig.align="center", out.width="75%"}
 knitr::include_graphics("images/tdist.png")
 ```
 
 ---
 
-## Inspiration and common theme
+# Inspiration and common theme
 
-### There is only ONE (hypothesis) test!
+## There is only ONE (hypothesis) test!
 
 <br><br>
 
 <center>
-<a href="http://allendowney.blogspot.com/2016/06/there-is-still-only-one-test.html"><img src="images/ht.png" width="600"/> </a>
+<a href="http://allendowney.blogspot.com/2016/06/there-is-still-only-one-test.html"><img src="images/ht.png" width="650"/> </a>
 </center>
 
 ---
 
 
-## 5. Don’t fence off students from the computation <br> &nbsp; &nbsp; pool, throw them in!
+# 5. Don’t fence off students from the computation pool, throw them in!
 
 - <small>Scaffold & support as a good foreign language professor would</small>
+- <small>Coding will soon be a basic skill on par with reading and writing</small>
 
 <center>
 <br>
-<a href="http://giphy.com/gifs/pool-diving-synchronized-swimming-pDWtwK7D2IlFu"><img src="images/giphy2.gif" width="550"/> </a>
+<a href="http://giphy.com/gifs/pool-diving-synchronized-swimming-pDWtwK7D2IlFu"><img src="images/giphy2.gif" width="450"/> </a>
 </center>
 
 ---
 
-# Developing a needed skill
+# 6. Complete reproducibility via <small>`bookdown`</small>
 
-- Coding will be a basic skill on par with reading and writing.
-
-<center>
-<br>
-<a href="https://static1.squarespace.com/static/5150aec6e4b0e340ec52710a/t/51525c33e4b0b3e0d10f77ab/1364352052403/Data_Science_VD.png"><img src="https://static1.squarespace.com/static/5150aec6e4b0e340ec52710a/t/51525c33e4b0b3e0d10f77ab/1364352052403/Data_Science_VD.png" width="400"/> </a>
-</center>
-
----
-
-# Developing a needed skill
-
-- Coding will be a basic skill on par with reading and writing.
+- Put it all out there
+- Ultimately the best textbook is one you’ve written yourself
 
 <center>
 <br>
-<a href="https://static1.squarespace.com/static/5150aec6e4b0e340ec52710a/t/51525c33e4b0b3e0d10f77ab/1364352052403/Data_Science_VD.png"><img src="images/no_venn.png" width="430"/> </a>
-</center>
-
----
-
-
-
-## 6. Complete reproducibility with `bookdown`
-
-### - Put it all out there
-
-### - Ultimately the best textbook is one you’ve written yourself
-
-<center>
-<a href="http://giphy.com/gifs/oskouioskoui-lotr-gifscapade-3oFyCVxsQn6RBa0r5u"><img src="images/precious.gif" width="600"/> </a>
+<a href="http://giphy.com/gifs/oskouioskoui-lotr-gifscapade-3oFyCVxsQn6RBa0r5u"><img src="images/precious.gif" width="550"/> </a>
 </center>
 
 ---
@@ -244,12 +226,56 @@ OR
 
 ---
 
-class: center, middle
+# Tips from us
 
-# Supplementary materials to the textbook
+- We think the model for teaching intro stats is evolving rapidly in an exciting way.
+  - We want to encourage you to stay ahead of the curve and to help you stay on the cutting edge as well with your courses.
+--
+
+- We use the chalkboard/whiteboard for writing code, for coloring plots, and for better engaging with our students.
+  - We also demo R code in class and ask students to engineer/reverse engineer.
 
 
 ---
+
+# Start small
+
+<br>
+
+## <div style="float: left; width: 45%;">Adding just a few of our ideas and materials into your course can go a long way </div>
+
+<div style="float: right; width: 45%;">
+<a href="https://www.amazon.com/Small-Teaching-Everyday-Lessons-Learning/dp/1118944496"><img src="images/small_teaching.jpg" width="280"/> </a>
+</center></div>
+
+---
+
+## [ModernDive.com](http://www.moderndive.com)
+
+- Join us for a [workshop](https://www.causeweb.org/cause/uscots/uscots17/workshop/3) with many more details at USCOTS at <br> Penn State on May 17-18
+- Fill out our [form](http://eepurl.com/cBkItf) to receive updates regarding the textbook
+- Email us <br> &emsp; <chester@moderndive.com> <br> &emsp; <albert@moderndive.com>
+- Follow us on Twitter <br> &emsp; [@old_man_chester](https://twitter.com/old_man_chester) <br> 
+&emsp; [@rudeboybert](https://twitter.com/rudeboybert)
+
+
+---
+
+class: center, middle
+
+# Supplementary materials
+
+***
+
+### [`fivethirtyeight` R package](#fte)
+### [DataCamp course](#dc)
+### [Chester's course webpage](#chester)
+### [Albert's course webpage](#albert)
+### [What's to come](#tocome)
+### [Source code](#source)
+---
+
+name: fte
 
 ## The [<small>`fivethirtyeight`</small>](https://cran.r-project.org/web/packages/fivethirtyeight/vignettes/fivethirtyeight.html)  R package
 
@@ -264,12 +290,10 @@ class: center, middle
 
 ## The [<small>`fivethirtyeight`</small>](https://CRAN.R-project.org/package=fivethirtyeight) R package  
 
-```{r eval=FALSE, echo=FALSE}
+```{r eval=FALSE, echo=TRUE}
 library(fivethirtyeight)
-data(police_locals)
+police_locals
 ```
-
-<br>
 
 <center>
 <a href="https://fivethirtyeight.com/datalab/most-police-dont-live-in-the-cities-they-serve/"><img src="images/police.png" width="750"/> </a>
@@ -277,6 +301,8 @@ data(police_locals)
 
 
 ---
+
+name: dc
 
 ## [DataCamp course](https://www.datacamp.com/courses/effective-data-storytelling-using-the-tidyverse)
 
@@ -286,25 +312,7 @@ data(police_locals)
 
 ---
 
-## Tips from us
-
-- We think the model for teaching intro stats is evolving rapidly.
-- We use the chalkboard/white board for writing code, for coloring plots, and for better engaging with our students.
-
----
-
-## Start small
-
-- Adding just a few of our ideas and materials into your course can go a long way
-
-<center>
-<br>
-<a href="https://www.amazon.com/Small-Teaching-Everyday-Lessons-Learning/dp/1118944496"><img src="images/small_teaching.jpg" width="250"/> </a>
-</center>
-
-
-
----
+name: chester
 
 ## [Chester's Social Statistics course webpage](https://ismayc.github.io/soc301_s2017/)
 
@@ -315,15 +323,19 @@ data(police_locals)
 
 ---
 
+name: albert
+
 ## [Albert's Intro to Stat & Data Sciences course webpage](https://rudeboybert.github.io/MATH116/)
 
 <center>
-<a href="https://rudeboybert.github.io/MATH116/"><img src="images/albert_page.png" width="630"/> </a>
+<a href="https://rudeboybert.github.io/MATH116/"><img src="images/albert_page.png" width="700"/> </a>
 </center>
 
 ---
 
-## What's to come
+name: tocome
+
+## What's to come 
 
 - Add more interactive shiny apps into the book
 
@@ -335,18 +347,12 @@ data(police_locals)
 
 ---
 
-layout: true
+name: source
 
-.footer[These slides available at <http://bit.ly/moderndive-causeweb> <br> Source code for slides at <https://github.com/ismayc/causeweb2017>]
+## Source code
 
----
-
-## [ModernDive.com](http://www.moderndive.com)
-
-- <small>Join us for a [workshop](https://www.causeweb.org/cause/uscots/uscots17/workshop/3) with many more details at USCOTS at <br> Penn State on May 17-18</small>
-- <small>Slides created via the R package [xaringan](https://github.com/yihui/xaringan) by Yihui Xie.</small>
-- <small>[Source code for ModernDive](https://github.com/ismayc/moderndiver-book)</small>
-    - <small>Feel free to modify the book as you wish for your own needs! Just please list the authors as "Chester Ismay, Albert Y. Kim, and YOU!"</small>
-- <small>Fill out form to receive updates using [MailChimp](http://eepurl.com/cBkItf)</small>
-- <small>Email us at <chester@moderndive.com> or <albert@moderndive.com></small>
-- <small>Follow us on Twitter:  @old_man_chester, @rudeboybert</small>
+- [Source code for ModernDive](https://github.com/ismayc/moderndiver-book)
+    - Feel free to modify the book as you wish for your own needs! Just please list the authors as "Chester Ismay, Albert Y. Kim, and YOU!"
+- These slides available at <http://bit.ly/moderndive-causeweb>
+- Slides created via the R package [xaringan](https://github.com/yihui/xaringan) by Yihui Xie
+- Source code for these slides at <https://github.com/ismayc/causeweb2017>
